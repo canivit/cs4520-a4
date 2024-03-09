@@ -4,4 +4,6 @@
     <string name="prompt_password">Password</string>
     <string name="login">Login</string>
     <string name="invalid_username_or_password">Invalid username or password</string>
+    <string name="refresh">Refresh Products</string>
+    <string name="image_of_product">Image of product</string>
 </resources>
