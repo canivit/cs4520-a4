@@ -9,8 +9,8 @@ object Api {
     private const val BASE_URL: String = "https://kgtttq6tg9.execute-api.us-east-2.amazonaws.com/"
     private const val ENDPOINT: String = "prod/"
 
-    val productService: ProductService by lazy {
-        retrofit.create(ProductService::class.java)
+    val apiClient: ProductApiClient by lazy {
+        retrofit.create(ProductApiClient::class.java)
     }
 
     private val retrofit: Retrofit by lazy {
@@ -20,7 +20,7 @@ object Api {
             .build()
     }
 
-    interface ProductService {
+    interface ProductApiClient {
         @GET(ENDPOINT)
         suspend fun getProducts(): Response<List<Product>>
     }

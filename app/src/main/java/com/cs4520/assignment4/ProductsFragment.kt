@@ -24,7 +24,12 @@ class ProductsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
+
+        viewModel = ViewModelProvider(
+            this,
+            ProductViewModelFactory(view.context)
+        )[ProductsViewModel::class.java]
+
         viewModel.productsResult.observe(viewLifecycleOwner) { result ->
             binding.spinner.visibility = View.GONE
             when (result) {
