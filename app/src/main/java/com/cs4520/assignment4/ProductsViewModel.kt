@@ -40,7 +40,6 @@ class ProductsViewModel(
             updateProductsResult(Result.Error("No products available"))
         } else {
             updateProductsResult(Result.Success(products))
-            databaseHandle.productDao().removeAllProducts()
             databaseHandle.productDao().insertAllProducts(products)
         }
     }
@@ -52,7 +51,7 @@ class ProductsViewModel(
     }
 
     private suspend fun handleOffline() {
-        val products = databaseHandle.productDao().getAllProducts();
+        val products = databaseHandle.productDao().getAllProducts()
         if (products.isEmpty()) {
             updateProductsResult(Result.Error("Offline, failed to load products"))
         } else {
